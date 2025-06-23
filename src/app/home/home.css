@@ -1,0 +1,48 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Playfair Display SC", Georgia, 'Times New Roman', Times, serif;
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #e54;
+}
+
+
+p {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav button {
+  background: #fb5;
+  border-radius: 48px;
+  color: #222;
+  padding: 1rem;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
