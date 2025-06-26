@@ -1,0 +1,19 @@
+<h2>Disciplinas disponíveis:</h2>
+<hr>
+
+<dl>
+  @for (disciplina of disciplinas; track disciplina.id){
+    <dt (click)="selecionar(disciplina)">
+      <span [class.selecionado]="selecionado?.codigo==disciplina.codigo">{{disciplina.codigo}}</span>
+
+      @if (selecionado?.codigo==disciplina.codigo){
+        <span>{{disciplina.nome}}</span>
+        <nav>
+          <button (click)="excluir(disciplina); $event.stopPropagation()">Excluir</button>
+
+          <button [routerLink]="['/disciplinas', disciplina.id]">Editar</button>
+        </nav>
+      }
+    </dt>
+  }
+</dl>

@@ -1,0 +1,72 @@
+{
+  "disciplinas": [
+    {
+      "id": 1,
+      "codigo": "001",
+      "nome": "Português"
+    },
+    {
+      "id": 2,
+      "codigo": "002",
+      "nome": "Matemática"
+    },
+    {
+      "id": 3,
+      "codigo": "003",
+      "nome": "Geografia"
+    },
+    {
+      "id": 4,
+      "codigo": "004",
+      "nome": "História"
+    },
+    {
+      "id": 5,
+      "codigo": "005",
+      "nome": "Química"
+    },
+    {
+      "id": 6,
+      "codigo": "006",
+      "nome": "Física"
+    },
+    {
+      "codigo": "010",
+      "nome": "Filosofia",
+      "id": 7
+    },
+    {
+      "codigo": "011",
+      "nome": "Educação Física",
+      "id": 8
+    },
+    {
+      "codigo": "012",
+      "nome": "Educação Moral e Cívica",
+      "id": 9
+    },
+    {
+      "codigo": "013",
+      "nome": "Artes",
+      "id": 10
+    },
+    {
+      "codigo": "014",
+      "nome": "Música",
+      "id": 11
+    },
+    {
+      "codigo": "012",
+      "nome": "Teste",
+      "id": 12
+    }
+  ],
+  "turmas": [
+    {
+      "id": 1,
+      "codigo": "001",
+      "disciplinaId": 1,
+      "ano": 2017
+    }
+  ]
+}
