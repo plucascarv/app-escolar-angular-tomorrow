@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DisciplinaService {
   private disciplinas:Disciplina[] = [];
-  API_URL = '';
+  API_URL = 'http://localhost:3000/';
 
   constructor(private http:HttpClient) { }
 
@@ -19,8 +19,6 @@ export class DisciplinaService {
   salvar(id:number|null, codigo:string, nome:string) {
     let editDisciplina = {id:id,codigo:codigo,nome:nome};
     if(id) {
-      editDisciplina.codigo = codigo;
-      editDisciplina.nome = nome;
       return this.http.patch(
         this.API_URL+"/disciplina"+id,
         editDisciplina
@@ -30,8 +28,8 @@ export class DisciplinaService {
     return this.http.post(this.API_URL+'/disciplinas/'+editDisciplina, {observe:'body'});
   }
 
-  excluir(id:number):void {
-    this.http.delete<void>(`${this.API_URL+"/disciplinas"}/${id}`);
+  excluir(id:number): Observable<void> {
+    return this.http.delete<void>(`${this.API_URL}/disciplinas/${id}`);
   }
 
   encontrar(param:number|string):Observable<Disciplina> {

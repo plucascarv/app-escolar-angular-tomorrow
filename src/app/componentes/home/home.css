@@ -34,7 +34,7 @@ nav {
   gap: 1rem;
 }
 
-nav button {
+button {
   background: #fb5;
   border-radius: 48px;
   color: #222;

@@ -1,19 +1,24 @@
-<h2>Disciplinas disponíveis:</h2>
-<hr>
+<main>
+  <h2>Disciplinas disponíveis:</h2>
+  <hr>
+  
+  <div class="search">
+    <input type="text" [(ngModel)]="termoBusca" (input)="aplicarFiltro()" placeholder="Buscar por nome ou código...">
+  </div>
 
-<dl>
-  @for (disciplina of disciplinas; track disciplina.id){
-    <dt (click)="selecionar(disciplina)">
-      <span [class.selecionado]="selecionado?.codigo==disciplina.codigo">{{disciplina.codigo}}</span>
-
-      @if (selecionado?.codigo==disciplina.codigo){
-        <span>{{disciplina.nome}}</span>
+  <ul>
+    @for (disciplina of disciplinasFiltradas; track disciplina.id){
+      <li (click)="selecionar(disciplina)">
+        <div class="info">
+          <span>{{disciplina.codigo}}</span>
+          <span>{{disciplina.nome}}</span>
+        </div>
         <nav>
-          <button (click)="excluir(disciplina); $event.stopPropagation()">Excluir</button>
-
+          <button (click)="excluir(disciplina)">Excluir</button>
+            
           <button [routerLink]="['/disciplinas', disciplina.id]">Editar</button>
-        </nav>
-      }
-    </dt>
-  }
-</dl>
+        </nav> 
+      </li>
+    }
+  </ul>
+</main>

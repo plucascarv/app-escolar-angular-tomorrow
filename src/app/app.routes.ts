@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Home } from './componentes/home/home';
 import { ListaDisciplinas } from './componentes/lista-disciplinas/lista-disciplinas';
 import { EditaDisciplina } from './componentes/edita-disciplina/edita-disciplina';
+import { Error } from './componentes/error/error';
 import path from 'path';
 
 export const routes: Routes = [
@@ -14,7 +15,15 @@ export const routes: Routes = [
     component: ListaDisciplinas
   },
   {
-    path:"discip´linas/:id",
+    path:"disciplinas/novo",
     component: EditaDisciplina
+  },
+  {
+    path:"disciplinas/:id",
+    component: EditaDisciplina
+  },
+  {
+    path: "**",
+    component: Error
   }
 ];

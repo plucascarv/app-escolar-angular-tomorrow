@@ -1,0 +1,58 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+  gap: 2rem;
+}
+
+h2 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #e54;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+form input[type="text"]  {
+  font: 400 1rem/1.5 "IBM Plex Mono", monospace;
+  border: 1px solid #e54;
+  padding: 12px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form input[type="text"]:focus {
+  outline: none;
+  border-color: #fb5;
+  background: white;
+  box-shadow: 0px 0px 0px 2px #fea;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  background: #fb5;
+  border-radius: 48px;
+  color: #222;
+  padding: 1rem;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

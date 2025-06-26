@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +9,9 @@ import { Router } from 'express';
   styleUrl: './home.css'
 })
 export class Home {
+  constructor(private router: Router) {}
 
+  navigateToLista() {
+    this.router.navigate(['/disciplinas'])
+  }
 }
