@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DisciplinaService {
   private disciplinas:Disciplina[] = [];
-  API_URL = 'http://localhost:3000/';
+  API_URL = 'http://localhost:3000';
 
   constructor(private http:HttpClient) { }
 
@@ -16,34 +16,36 @@ export class DisciplinaService {
     return this.http.get<Disciplina[]>(this.API_URL+'/disciplinas');
   }
 
-  salvar(id:number|null, codigo:string, nome:string) {
+  salvar(id:string|null, codigo:string, nome:string) {
     let editDisciplina = {id:id,codigo:codigo,nome:nome};
     if(id) {
-      return this.http.patch(
-        this.API_URL+"/disciplina"+id,
+      return this.http.put(
+        this.API_URL+"/disciplinas/"+id,
         editDisciplina
       );
     }
     editDisciplina.id = this.gerarProximoId();
-    return this.http.post(this.API_URL+'/disciplinas/'+editDisciplina, {observe:'body'});
+    return this.http.post(this.API_URL+'/disciplinas/',editDisciplina);
   }
 
-  excluir(id:number): Observable<void> {
+  excluir(id:string): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/disciplinas/${id}`);
   }
 
-  encontrar(param:number|string):Observable<Disciplina> {
-    return this.http.get<Disciplina>(this.API_URL+'/disciplina/'+param);
+  encontrar(param:string):Observable<Disciplina> {
+    return this.http.get<Disciplina>(this.API_URL+'/disciplinas/'+param);
   }
 
   cancelar():void {
     this.disciplinas = [];
   }
 
-  private gerarProximoId() {
-    if (this.disciplinas.length === 0) return 1;
+  private gerarProximoId():string {
 
-    const maior = Math.max(...this.disciplinas.map((d)=>d.id));
-    return maior+1;
+    const maior = this.disciplinas.map((d)=>Number(d.id)).filter(n => !isNaN(n));
+
+    if (maior.length === 0) return "1";
+
+    return String(Math.max(...maior) + 1);
   }
 }

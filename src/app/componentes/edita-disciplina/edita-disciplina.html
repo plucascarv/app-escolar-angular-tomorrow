@@ -2,7 +2,7 @@
   <h2>Edite ou adicione uma disciplina:</h2>
   <hr>
   
-  <form #cadastro="ngForm" (submit)="salvar()">
+  <form #cadastro="ngForm">
     <div>
       <label for="codigo">Código da Disciplina:</label>
       <input type="text" name="codigo" [(ngModel)]="codigo">
@@ -14,7 +14,7 @@
     </div>
     
     <nav>
-      <button type="submit" routerLink="/disciplinas">Salvar</button>
+      <button type="submit" (click)="salvar()">Salvar</button>
       
       <button type="reset" (click)="cancelar()">Cancelar</button>
     </nav>
