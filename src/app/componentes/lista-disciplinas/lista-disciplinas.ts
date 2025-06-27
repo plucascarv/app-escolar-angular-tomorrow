@@ -43,14 +43,10 @@ export class ListaDisciplinas {
   }
 
   excluir(disciplina:Disciplina) {
+    console.log(disciplina)
     if (confirm('Tem certeza que deseja excluir a disciplina '+disciplina.nome+'?')) {
-      this.disciplinaService.excluir(disciplina.id).subscribe({
-        next: () => {
-          this.atualizarLista();
-        },
-        error: (e) => {
-          console.error(e);
-        }
+      this.disciplinaService.excluir(disciplina.id).subscribe(disciplina => {
+      this.atualizarLista()
       })
     }
   }
